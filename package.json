@@ -15,7 +15,8 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.1",
     "react-router-dom": "6.4.3",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@tauri-apps/api": "^1.2.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
@@ -94,6 +95,7 @@
     "vite-plugin-dts": "~1.7.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "^4.0.2",
-    "vitest": "^0.25.8"
+    "vitest": "^0.25.8",
+    "@tauri-apps/cli": "^1.2.2"
   }
 }

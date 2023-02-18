@@ -1,8 +1,8 @@
 {
   "recommendations": [
+    "bradlc.vscode-tailwindcss",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "firsttris.vscode-jest-runner",
-    "nrwl.angular-console"
+    "firsttris.vscode-jest-runner"
   ]
 }
