@@ -1,0 +1,27 @@
+{
+  "name": "deta-image-storage",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "make": "tauri build"
+  },
+  "dependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "@tauri-apps/api": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vitejs/plugin-react": "*",
+    "typescript": "*",
+    "vite": "*",
+    "@tauri-apps/cli": "*"
+  }
+}
