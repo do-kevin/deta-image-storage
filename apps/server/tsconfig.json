@@ -11,11 +11,30 @@
     }
   ],
   "compilerOptions": {
-    "lib": ["ES2022"], // ES2020 in earlier versions
-    "module": "ES2022", //ESNext
+    "lib": ["ES2019", "ESNext.AsyncIterable"],
+    "module": "CommonJS",
     "moduleResolution": "Node",
-    "target": "ES2022", // ES2020 in earlier versions
-    "esModuleInterop": true
+    "target": "ES2019",
+    "declaration": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "removeComments": false,
+    "strict": false /* Enable all strict type-checking options. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": true /* Enable strict null checks. */,
+    "strictFunctionTypes": true /* Enable strict checking of function types. */,
+    "strictPropertyInitialization": false /* Enable strict checking of property initialization in classes. */,
+    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+    "alwaysStrict": true /* Parse in strict mode and emit "use strict" for each source file. */,
+    "noUnusedLocals": false /* Report errors on unused locals. */,
+    "noUnusedParameters": false /* Report errors on unused parameters. */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "skipLibCheck": true /* Don't check libs typings - due to https://github.com/prisma/graphql-request/issues/26 */,
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */
   },
   "ts-node": {
     "esm": true

@@ -43,6 +43,7 @@ main()
   });
 
 app.get('/', (req, res) => {
+  console.log('env vars: ', process.env);
   res.send({ message: 'Hello API' });
 });
 
