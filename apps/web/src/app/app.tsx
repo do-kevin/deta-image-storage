@@ -1,51 +1,50 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
-import { Route, Routes, Link } from 'react-router-dom';
+import { DetaDrive } from '../../../../libs/shared/services/deta-drive';
 
 export function App() {
+  const [newFile, setNewFile] = useState(null);
+
+  const deta = new DetaDrive(
+    import.meta.env.VITE_DETA_SPACE_PROJECT_KEY,
+    import.meta.env.VITE_DETA_SPACE_DRIVE_NAME
+  );
+
+  deta.createDrive(import.meta.env.VITE_DETA_SPACE_DRIVE_NAME);
+
+  const { handleSubmit, register } = useForm();
+
+  const onSubmit = async (data: any) => {
+    if (newFile) {
+      await deta.uploadImage(newFile, {
+        name: newFile.name,
+        type: newFile.type,
+      });
+    }
+  };
+
+  const handleFile = async (event: any) => {
+    event.preventDefault();
+
+    setNewFile(event.target.files[0]);
+    console.log(newFile);
+    return newFile;
+  };
+
   return (
     <>
-      <NxWelcome title="web" />
-      <div />
+      <h1>Deta Image Storage</h1>
 
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...(register('file'), { required: true })}
+          type="file"
+          onChange={handleFile}
         />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
+        <input type="submit" />
+      </form>
     </>
   );
 }

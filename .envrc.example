@@ -9,3 +9,7 @@ PATH_add node_modules/.bin/
 # DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/deta_image_storage_db?schema=public"
+
+VITE_DETA_SPACE_PROJECT_KEY='xxxxxxxxxxxxxxxxxxxx'
+VITE_DETA_SPACE_DRIVE_NAME='xxxxxxxxxxxxxxxxxxxx'
+VITE_DETA_SPACE_PROJECT_ID='xxxx'

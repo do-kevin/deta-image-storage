@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  envDir: '../../.envrc',
+
   cacheDir: '../../node_modules/.vite/web',
 
   server: {

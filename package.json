@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "server:start": "ts-node apps/server/src/main.ts"
+    "web:start": "dotenv -e .envrc -- vite apps/web",
+    "server:start": "dotenv -e .envrc -- nodemon apps/server/src/main.ts"
   },
   "private": true,
   "prisma": {
@@ -12,11 +13,13 @@
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
     "axios": "^1.0.0",
+    "deta": "^1.1.0",
     "graphql-fields": "^2.0.3",
     "graphql-scalars": "^1.20.1",
     "nanoid": "^4.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.2",
     "react-native": "0.71.1",
     "react-router-dom": "6.4.3",
     "tslib": "^2.5.0"
