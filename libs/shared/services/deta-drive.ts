@@ -1,11 +1,6 @@
-import { nanoid } from 'nanoid';
 import { Deta } from 'deta';
 import DetaClass from 'deta/dist/types/deta';
 import DriveClass from 'deta/dist/types/drive';
-
-/* Deta Cloud has deprecated. Need to migrate to Deta Space and that has CORS policy.
- *   So we need to do the uploading logic in the server, not in the client.
- */
 
 export class DetaDrive {
   deta: DetaClass;
@@ -32,26 +27,28 @@ export class DetaDrive {
       type: string;
     }
   ) {
-    // We need to check "name"'s extension and lowercase it. E.g. picture.JPG -> picture.jpg
+    const { nanoid } = await import('nanoid'); // nanoid is esm-only and doesn't play well w/ CommonJS. Need to dyanamically import
+
     const newFileName = `${nanoid()}_${name}`;
+    let imageData = file;
 
-    let imageData = await file.arrayBuffer();
+    if (file.buffer && !Buffer.isBuffer(file.buffer)) {
+      imageData = await file.arrayBuffer();
+      imageData = new Uint8Array(imageData);
+    }
 
-    console.log('imageData: ', imageData);
-
-    imageData = new Uint8Array(imageData);
-
-    console.log('imageData: ', imageData);
+    if (file.buffer && Buffer.isBuffer(file.buffer)) {
+      imageData = new Uint8Array(file.buffer);
+    }
 
     try {
       const image = await this.drive.put(newFileName, {
         data: imageData,
         contentType: type,
       });
-
-      console.log('image: ', image);
-    } catch (e) {
-      console.log(e);
+      return image;
+    } catch (error) {
+      console.log(error);
     }
   }
 

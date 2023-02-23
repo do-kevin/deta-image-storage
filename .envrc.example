@@ -6,10 +6,13 @@ PATH_add node_modules/.bin/
 # Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
-# DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+VITE_SERVER_URL='http://localhost:3000'
 
+# DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/deta_image_storage_db?schema=public"
 
 VITE_DETA_SPACE_PROJECT_KEY='xxxxxxxxxxxxxxxxxxxx'
 VITE_DETA_SPACE_DRIVE_NAME='xxxxxxxxxxxxxxxxxxxx'
 VITE_DETA_SPACE_PROJECT_ID='xxxx'
+
+VITE_SECRET_KEY='xxxxxxxxxxx'
