@@ -7,15 +7,19 @@
   },
   "dependencies": {
     "@prisma/client": "*",
+    "crypto-js": "*",
     "dotenv": "*",
     "dotenv-cli": "*",
     "express": "*",
+    "multer": "*",
     "prisma": "*",
     "ts-node": "*",
     "typescript": "*"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
     "@types/express": "*",
+    "@types/multer": "*",
     "@types/node": "*",
     "nodemon": "*"
   }
